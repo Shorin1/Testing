@@ -34,10 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnalaizerClass">
-      <HintPath>..\Testing tasks\AnalaizerClass.dll</HintPath>
+      <HintPath>..\Test Calc Class\AnalaizerClass.dll</HintPath>
     </Reference>
     <Reference Include="CalcClass">
-      <HintPath>..\Testing tasks\CalcClass.dll</HintPath>
+      <HintPath>..\Test Calc Class\CalcClass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

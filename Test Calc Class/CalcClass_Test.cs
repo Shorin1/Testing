@@ -13,10 +13,10 @@ namespace Testing_tasks
         static void Main(string[] args)
         {
             Random ran = new Random();
-            long a = ran.Next(int.MaxValue);
-            long b = ran.Next(int.MaxValue);
             for (int i = 0; i < 3; i++)
             {
+                long a = ran.Next(int.MaxValue);
+                long b = ran.Next(int.MaxValue);
                 long result = CalcClass.Add(a, b);
                 if (result == a + b)
                 {
