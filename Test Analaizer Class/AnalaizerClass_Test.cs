@@ -14,10 +14,9 @@ namespace Test_Analaizer_Class
         {
             for (int i = 0; i < 3; i++)
             {
-                AnalaizerClass.expression = Console.ReadLine();
                 CheckCurrencyTest();
                 FormatTest();
-                AnalaizerClass.opz = CreateStackTest();
+                CreateStackTest();
                 RunEstimateTest();
             }
             Console.ReadKey();
@@ -26,7 +25,7 @@ namespace Test_Analaizer_Class
         static void CheckCurrencyTest() //Проверка корректности скобочной структуры входного выражения 
         {
             Console.WriteLine("CheckCurrency()");
-            //AnalaizerClass.expression = Console.ReadLine();
+            AnalaizerClass.expression = Console.ReadLine();
             bool result = AnalaizerClass.CheckCurrency();
             Console.WriteLine(result);
         }
@@ -35,21 +34,17 @@ namespace Test_Analaizer_Class
 
         {
             Console.WriteLine("Format()");
-            //AnalaizerClass.expression = Console.ReadLine();
+            AnalaizerClass.expression = Console.ReadLine();
             string result = AnalaizerClass.Format();
             Console.WriteLine(result);
         }
 
         static ArrayList CreateStackTest() //Создает массив, в котором располагаются операторы и символы, представленные в обратной польской записи(безскобочной) На этом же этапе отлавливаются почти все остальные ошибки (см. код). По сути - это компиляция.
-
         {
             Console.WriteLine("CreateStack()");
-            //AnalaizerClass.expression = Console.ReadLine();
+            AnalaizerClass.expression = Console.ReadLine();
             ArrayList result = AnalaizerClass.CreateStack();
-            foreach(var temp in result)
-            {
-                Console.Write(temp + " ");
-            }
+            foreach(var temp in result) Console.Write(temp + " ");
             Console.WriteLine();
             return result;
         }
@@ -57,9 +52,9 @@ namespace Test_Analaizer_Class
         static void RunEstimateTest() //Вычисление обратной польской записи
         {
             Console.WriteLine("RunEstimate()");
-            //AnalaizerClass.expression = Console.ReadLine();
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < 3; i++) list.Add(Console.ReadLine());
             AnalaizerClass.RunEstimate();
-            //Console.WriteLine(AnalaizerClass.expression);
         }
     }
 }
