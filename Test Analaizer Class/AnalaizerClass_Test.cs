@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,21 @@ namespace Test_Analaizer_Class
     {
         static void Main(string[] args)
         {
-            CheckCurrencyTest();
-            FormatTest();
-            CreateStackTest();
-            RunEstimateTest();
+            for (int i = 0; i < 3; i++)
+            {
+                AnalaizerClass.expression = Console.ReadLine();
+                CheckCurrencyTest();
+                FormatTest();
+                AnalaizerClass.opz = CreateStackTest();
+                RunEstimateTest();
+            }
             Console.ReadKey();
         }
 
         static void CheckCurrencyTest() //Проверка корректности скобочной структуры входного выражения 
         {
             Console.WriteLine("CheckCurrency()");
-            AnalaizerClass.expression = Console.ReadLine();
+            //AnalaizerClass.expression = Console.ReadLine();
             bool result = AnalaizerClass.CheckCurrency();
             Console.WriteLine(result);
         }
@@ -30,30 +35,31 @@ namespace Test_Analaizer_Class
 
         {
             Console.WriteLine("Format()");
-            AnalaizerClass.expression = Console.ReadLine();
+            //AnalaizerClass.expression = Console.ReadLine();
             string result = AnalaizerClass.Format();
             Console.WriteLine(result);
         }
 
-        static void CreateStackTest() //Создает массив, в котором располагаются операторы и символы, представленные в обратной польской записи(безскобочной) На этом же этапе отлавливаются почти все остальные ошибки (см. код). По сути - это компиляция.
+        static ArrayList CreateStackTest() //Создает массив, в котором располагаются операторы и символы, представленные в обратной польской записи(безскобочной) На этом же этапе отлавливаются почти все остальные ошибки (см. код). По сути - это компиляция.
 
         {
             Console.WriteLine("CreateStack()");
-            AnalaizerClass.expression = Console.ReadLine();
-            var result = AnalaizerClass.CreateStack();
+            //AnalaizerClass.expression = Console.ReadLine();
+            ArrayList result = AnalaizerClass.CreateStack();
             foreach(var temp in result)
             {
                 Console.Write(temp + " ");
             }
             Console.WriteLine();
+            return result;
         }
 
         static void RunEstimateTest() //Вычисление обратной польской записи
         {
             Console.WriteLine("RunEstimate()");
-            AnalaizerClass.expression = Console.ReadLine();
+            //AnalaizerClass.expression = Console.ReadLine();
             AnalaizerClass.RunEstimate();
-            Console.WriteLine(AnalaizerClass.expression);
+            //Console.WriteLine(AnalaizerClass.expression);
         }
     }
 }
