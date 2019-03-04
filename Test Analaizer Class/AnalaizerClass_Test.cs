@@ -12,49 +12,60 @@ namespace Test_Analaizer_Class
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                CheckCurrencyTest();
-                FormatTest();
-                CreateStackTest();
-                RunEstimateTest();
-            }
+            CheckCurrencyTest();
+            FormatTest();
+            CreateStackTest();
+            RunEstimateTest();
             Console.ReadKey();
         }
 
         static void CheckCurrencyTest() //Проверка корректности скобочной структуры входного выражения 
         {
-            Console.WriteLine("CheckCurrency()");
-            AnalaizerClass.expression = Console.ReadLine();
-            bool result = AnalaizerClass.CheckCurrency();
-            Console.WriteLine(result);
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("CheckCurrency()");
+                AnalaizerClass.expression = Console.ReadLine();
+                bool result = AnalaizerClass.CheckCurrency();
+                if (result) Console.WriteLine("Скобочная структура верна");
+                else Console.WriteLine("Скобочная структура неверна");
+            }
         }
 
         static void FormatTest() //Форматирует входное выражение, выставляя между операторами пробелы и удаляя лишние, а также отлавливает неопознанные операторы, следит за концом строки
-
         {
-            Console.WriteLine("Format()");
-            AnalaizerClass.expression = Console.ReadLine();
-            string result = AnalaizerClass.Format();
-            Console.WriteLine(result);
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Format()");
+                AnalaizerClass.expression = Console.ReadLine();
+                string result = AnalaizerClass.Format();
+                Console.WriteLine(result);
+            }
         }
 
         static ArrayList CreateStackTest() //Создает массив, в котором располагаются операторы и символы, представленные в обратной польской записи(безскобочной) На этом же этапе отлавливаются почти все остальные ошибки (см. код). По сути - это компиляция.
         {
-            Console.WriteLine("CreateStack()");
-            AnalaizerClass.expression = Console.ReadLine();
-            ArrayList result = AnalaizerClass.CreateStack();
-            foreach(var temp in result) Console.Write(temp + " ");
-            Console.WriteLine();
-            return result;
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("CreateStack()");
+                AnalaizerClass.expression = Console.ReadLine();
+                ArrayList result = AnalaizerClass.CreateStack();
+                foreach (var temp in result) Console.Write(temp + " ");
+                Console.WriteLine();
+            }
+            return null;
         }
 
         static void RunEstimateTest() //Вычисление обратной польской записи
         {
-            Console.WriteLine("RunEstimate()");
-            ArrayList list = new ArrayList();
-            for (int i = 0; i < 3; i++) list.Add(Console.ReadLine());
-            AnalaizerClass.RunEstimate();
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("RunEstimate()");
+                ArrayList list = new ArrayList();
+                for (int j = 0; j < 3; j++) list.Add(Console.ReadLine());
+                AnalaizerClass.opz = list;
+                string result = AnalaizerClass.RunEstimate();
+                Console.WriteLine(result);
+            }
         }
     }
 }

@@ -17,17 +17,13 @@ namespace Testing_tasks
             {
                 long a = ran.Next(int.MaxValue);
                 long b = ran.Next(int.MaxValue);
+                Console.WriteLine("a = " + a);
+                Console.WriteLine("b = " + b);
+                if ((a + b) > int.MaxValue) Console.WriteLine("Ожидаемый результат - слишком большое число");
+                else Console.WriteLine("Ожидаемый результат = " + (a + b));
+
                 long result = CalcClass.Add(a, b);
-                if (result == a + b)
-                {
-                    Console.WriteLine("a = {0}, b = {1}, a + b = {2}", a, b, a + b);
-                    Console.WriteLine("True");
-                }
-                else
-                {
-                    Console.WriteLine("a = {0}, b = {1}, a + b = {2}", a, b, a + b);
-                    Console.WriteLine("False");
-                }
+                Console.WriteLine("Полученный результат = " + result);
             }
             Console.ReadKey();
         }
