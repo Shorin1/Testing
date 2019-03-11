@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BaseCalculator;
 
 namespace Test_Analaizer_Class
@@ -12,10 +8,10 @@ namespace Test_Analaizer_Class
     {
         static void Main(string[] args)
         {
-            CheckCurrencyTest();
-            FormatTest();
+            //CheckCurrencyTest();
+            //FormatTest();
             CreateStackTest();
-            RunEstimateTest();
+            //RunEstimateTest();
             Console.ReadKey();
         }
 
