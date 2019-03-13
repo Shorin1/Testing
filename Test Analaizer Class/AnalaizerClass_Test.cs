@@ -8,10 +8,10 @@ namespace Test_Analaizer_Class
     {
         static void Main(string[] args)
         {
-            //CheckCurrencyTest();
-            //FormatTest();
+            CheckCurrencyTest();
+            FormatTest();
             CreateStackTest();
-            //RunEstimateTest();
+            RunEstimateTest();
             Console.ReadKey();
         }
 
@@ -21,8 +21,7 @@ namespace Test_Analaizer_Class
             {
                 Console.WriteLine("CheckCurrency()");
                 AnalaizerClass.expression = Console.ReadLine();
-                bool result = AnalaizerClass.CheckCurrency();
-                if (result) Console.WriteLine("Скобочная структура верна");
+                if (AnalaizerClass.CheckCurrency()) Console.WriteLine("Скобочная структура верна");
                 else Console.WriteLine("Скобочная структура неверна");
             }
         }
@@ -33,8 +32,7 @@ namespace Test_Analaizer_Class
             {
                 Console.WriteLine("Format()");
                 AnalaizerClass.expression = Console.ReadLine();
-                string result = AnalaizerClass.Format();
-                Console.WriteLine(result);
+                Console.WriteLine(AnalaizerClass.Format());
             }
         }
 
@@ -44,8 +42,7 @@ namespace Test_Analaizer_Class
             {
                 Console.WriteLine("CreateStack()");
                 AnalaizerClass.expression = Console.ReadLine();
-                ArrayList result = AnalaizerClass.CreateStack();
-                foreach (var temp in result) Console.Write(temp + " ");
+                foreach (var temp in AnalaizerClass.CreateStack()) Console.Write(temp + " ");
                 Console.WriteLine();
             }
             return null;
@@ -59,8 +56,7 @@ namespace Test_Analaizer_Class
                 ArrayList list = new ArrayList();
                 for (int j = 0; j < 3; j++) list.Add(Console.ReadLine());
                 AnalaizerClass.opz = list;
-                string result = AnalaizerClass.RunEstimate();
-                Console.WriteLine(result);
+                Console.WriteLine(AnalaizerClass.RunEstimate());
             }
         }
     }
