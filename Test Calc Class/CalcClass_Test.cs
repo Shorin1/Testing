@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseCalculator;
 
-
 namespace Testing_tasks
 {
     class CalcClass_Test
