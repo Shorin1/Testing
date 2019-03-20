@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Analaizer Class", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Calc Class", "Test Calc Class\Test Calc Class.csproj", "{AA2F6203-5EA0-4FAD-BF6B-D6DD73DF7AA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectLab3", "UnitTestProjectLab3\UnitTestProjectLab3.csproj", "{24363652-445C-49C9-926C-5FD2FAEDB9BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProjectLab3\UnitTestProject.csproj", "{24363652-445C-49C9-926C-5FD2FAEDB9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
