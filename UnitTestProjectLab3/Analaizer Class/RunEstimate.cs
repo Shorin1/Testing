@@ -12,6 +12,8 @@ namespace UnitTestProject.Analaizer_Class
     [TestClass]
     public class RunEstimate
     {
+        private const string COMPONENT_NAME = "AnalaizerClass.RunEstimate";
+
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
@@ -49,6 +51,16 @@ namespace UnitTestProject.Analaizer_Class
             }
 
             Assert.AreEqual(expected, result);
+        }
+
+        private string ListToString(ArrayList list)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (var v in list)
+            {
+                result.Append(v).Append(" ");
+            }
+            return result.ToString();
         }
 
         [TestMethod]

@@ -10,6 +10,8 @@ namespace UnitTestProject.Analaizer_Class
     [TestClass]
     public class CheckCurrency
     {
+        private const string COMPONENT_NAME = "AnalaizerClass.CheckCurrency";
+
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
@@ -30,11 +32,11 @@ namespace UnitTestProject.Analaizer_Class
             string logInfo = string.Format("\nNumber test: {0}()\nВходные данные: {1}\nОжидаемый результат: {2}\nПолученный результат result = {3}\n", testNumber, input, expected, result);
             if (result == expected)
             {
-                logger.Info(logInfo);
+                Log.CreateLogInfo(logger, testNumber, input, expected.ToString(), result.ToString());
             }
             else
             {
-                logger.Error(logInfo);
+                Log.CreateBugReport(logger, COMPONENT_NAME, testNumber, input, expected.ToString(), result.ToString());
             }
             Assert.AreEqual(expected, result);
         }
@@ -48,13 +50,13 @@ namespace UnitTestProject.Analaizer_Class
         [TestMethod]
         public void CheckCurrency2()
         {
-            CheckCurrencyTest(2, "(())", true);
+            CheckCurrencyTest(2, "(             (ffff)g)", true);
         }
 
         [TestMethod]
         public void CheckCurrency3()
         {
-            CheckCurrencyTest(3, "((((()))(())()()()", false);
+            CheckCurrencyTest(3, "(dsfsdgfs((((erewhgfsfdsfh))(eadf))()gsfh()()", false);
         }
 
         [TestMethod]

@@ -1,12 +1,15 @@
 ﻿using BaseCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
+using System.Text;
 
 namespace UnitTestProject.Analaizer_Class
 {
     [TestClass]
     public class Estimate
     {
+        private const string COMPONENT_NAME = "AnalaizlerClass.Estimate";
+
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
@@ -20,22 +23,22 @@ namespace UnitTestProject.Analaizer_Class
             return logger;
         }
 
-        private void EstimateTest(int numberTest, string input, string expected)
+        private void EstimateTest(int testNumber, string input, string expected)
         {
             AnalaizerClass.expression = input;
             string result = AnalaizerClass.Estimate();
-            string logInfo = string.Format("\nНомер теста: {0}\nВходные данные: {1}\nОжидаемый результат: {2}\nПолученный результат: {3}", numberTest, input, expected, result);
+            
             if (expected == result)
             {
-                logger.Info(logInfo);
+                Log.CreateLogInfo(logger, testNumber, input, expected, result);
             }
             else
             {
-                logger.Error(logInfo);
+                Log.CreateBugReport(logger, COMPONENT_NAME, testNumber, input, expected, result);
             }
             Assert.AreEqual(expected, result);
         }
-
+      
         [TestMethod]
         public void Estimate1()
         {
@@ -45,25 +48,25 @@ namespace UnitTestProject.Analaizer_Class
         [TestMethod]
         public void Estimate2()
         {
-            EstimateTest(2, "3 * ( 4 + 2 ) - 1", "17");
+            EstimateTest(2, "", "");
         }
 
         [TestMethod]
         public void Estimate3()
         {
-            EstimateTest(3, "2 - 1 * 5 + 7", "4");
+            EstimateTest(3, "2 +", "Error 05");
         }
 
         [TestMethod]
         public void Estimate4()
         {
-            EstimateTest(4, "7 - 5 * 1 - 2 + ( 2 / 1 )", "2");
+            EstimateTest(4, "1/0", "Error 09");
         }
 
         [TestMethod]
         public void Estimate5()
         {
-            EstimateTest(5, "4 / 2k * 5", "10");
+            EstimateTest(5, "Test", "Error 02 at 0");
         }
     }
 }

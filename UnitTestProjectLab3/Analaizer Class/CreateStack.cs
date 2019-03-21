@@ -9,6 +9,8 @@ namespace UnitTestProject.Analaizer_Class
     [TestClass]
     public class CreateStack
     {
+        private const string COMPONENT_NAME = "AnalaizerClass.CreateStack";
+
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
@@ -22,34 +24,39 @@ namespace UnitTestProject.Analaizer_Class
             return logger;
         }
 
-        private void CreateStackTest(int numbetTest, string input, ArrayList expected)
+        private void CreateStackTest(int testNumber, string input, ArrayList expected)
         {
             AnalaizerClass.expression = input;
-            StringBuilder logInfo = new StringBuilder();
-            logInfo.Append("\nNumber test: ").Append(numbetTest).Append(" \nВходные данные: ").Append(input).Append(" \nОжидаемый результат: ");
-
-            foreach (var v in expected)
-            {
-                logInfo.Append(v).Append(" ");
-            }
-
             ArrayList result = AnalaizerClass.CreateStack();
-
-            logInfo.Append(" \nПолученный результат: ");
-            LogLevel logLevel = LogLevel.Info;
+            bool successful = true;
 
             for (int i = 0; i < expected.Count; i++)
             {
-                logInfo.Append(result[i]).Append(" ");
                 Assert.AreEqual(expected[i], result[i]);
-                if (!expected[i].Equals(result[i]))
+                if (!result[i].Equals(expected[i]))
                 {
-                    logLevel = LogLevel.Error;
+                    successful = false;
                 }
             }
 
-            logInfo.Append("\n");
-            logger.Log(logLevel, logInfo);
+            if (successful)
+            {
+                Log.CreateLogInfo(logger, testNumber, input, ListToString(expected), ListToString(result));
+            }
+            else
+            {
+                Log.CreateBugReport(logger, COMPONENT_NAME, testNumber, input, ListToString(expected), ListToString(result));
+            }
+        }
+
+        private string ListToString(ArrayList list)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (var v in list)
+            {
+                result.Append(v).Append(" ");
+            }
+            return result.ToString();
         }
 
         [TestMethod]
@@ -61,7 +68,7 @@ namespace UnitTestProject.Analaizer_Class
         [TestMethod]
         public void CreateStack2()
         {
-            CreateStackTest(2, "4 / 2 * 5 ", new ArrayList { "4", "2", "/", "5", "*" });
+            CreateStackTest(2, "", new ArrayList());
         }
 
         [TestMethod]
