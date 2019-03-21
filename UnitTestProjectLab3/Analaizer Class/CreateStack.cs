@@ -10,13 +10,14 @@ namespace UnitTestProject.Analaizer_Class
     public class CreateStack
     {
         private const string COMPONENT_NAME = "AnalaizerClass.CreateStack";
+        private const string LOG_FILE_NAME = @"Log\Analaizer Class\CreateStack.txt";
 
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
         {
             var config = new NLog.Config.LoggingConfiguration();
-            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = @"Log\Analaizer Class\CreateStack.txt" };
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = LOG_FILE_NAME };
 
             config.AddRule(LogLevel.Info, LogLevel.Fatal, logfile);
             LogManager.Configuration = config;

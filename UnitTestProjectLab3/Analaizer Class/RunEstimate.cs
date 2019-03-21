@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
 using BaseCalculator;
@@ -13,13 +11,14 @@ namespace UnitTestProject.Analaizer_Class
     public class RunEstimate
     {
         private const string COMPONENT_NAME = "AnalaizerClass.RunEstimate";
+        private const string LOG_FILE_NAME = @"Log\Analaizer Class\RunEstimate.txt";
 
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
         {
             var config = new NLog.Config.LoggingConfiguration();
-            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = @"Log\Analaizer Class\RunEstimate.txt" };
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = LOG_FILE_NAME };
 
             config.AddRule(LogLevel.Info, LogLevel.Fatal, logfile);
             LogManager.Configuration = config;

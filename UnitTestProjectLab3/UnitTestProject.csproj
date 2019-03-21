@@ -73,7 +73,7 @@
     <Compile Include="Analaizer Class\Estimate.cs" />
     <Compile Include="Analaizer Class\Format.cs" />
     <Compile Include="Analaizer Class\RunEstimate.cs" />
-    <Compile Include="Calc Class\AddTest.cs" />
+    <Compile Include="Calc Class\Add.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Main\Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

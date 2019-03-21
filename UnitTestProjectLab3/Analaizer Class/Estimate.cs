@@ -1,7 +1,6 @@
 ﻿using BaseCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
-using System.Text;
 
 namespace UnitTestProject.Analaizer_Class
 {
@@ -9,13 +8,14 @@ namespace UnitTestProject.Analaizer_Class
     public class Estimate
     {
         private const string COMPONENT_NAME = "AnalaizlerClass.Estimate";
+        private const string LOG_FILE_NAME = @"Log\Analaizer Class\Estimate.txt";
 
         private static Logger logger = LoggingConfiguration();
 
         private static Logger LoggingConfiguration()
         {
             var config = new NLog.Config.LoggingConfiguration();
-            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = @"Log\Analaizer Class\Estimate.txt" };
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = LOG_FILE_NAME };
 
             config.AddRule(LogLevel.Info, LogLevel.Fatal, logfile);
             LogManager.Configuration = config;
