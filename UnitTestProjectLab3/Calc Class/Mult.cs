@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLog;
+using System.Numerics;
 
 namespace UnitTestProject.Calc_Class
 {
@@ -28,11 +29,14 @@ namespace UnitTestProject.Calc_Class
             Random ran = new Random();
             int a = ran.Next(int.MinValue, int.MaxValue);
             int b = ran.Next(int.MinValue, int.MaxValue);
-            long expected = 0;
+            BigInteger bia = a;
+            BigInteger bib = b;
+            BigInteger temp = bia * bib;
+            BigInteger expected = 0;
 
-            if (a * b <= int.MaxValue && a * b >= int.MinValue)
+            if (temp <= int.MaxValue && temp >= int.MinValue)
             {
-                expected = a * b;
+                expected = a*b;
             }
 
             long result = BaseCalculator.CalcClass.Mult(a, b);

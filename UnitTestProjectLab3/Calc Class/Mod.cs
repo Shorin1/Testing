@@ -63,7 +63,7 @@ namespace UnitTestProject.Calc_Class
         [TestMethod]
         public void Mud2()
         {
-            ModTest(3);
+            ModTest(2);
         }
 
         [TestMethod]

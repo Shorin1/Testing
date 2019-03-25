@@ -27,7 +27,16 @@ namespace UnitTestProject.Calc_Class
         {
             Random ran = new Random();
             long a = ran.Next(int.MinValue, int.MaxValue);
-            long expected = ~a;
+            long expected = 0;
+            if (a > 0)
+            {
+                expected = -a;
+            }
+            else
+            {
+                expected = a;
+            }
+
             long result = BaseCalculator.CalcClass.IABS(a);
 
             if (expected == result)
