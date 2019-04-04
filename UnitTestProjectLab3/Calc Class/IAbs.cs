@@ -10,7 +10,7 @@ namespace UnitTestProject.Calc_Class
         {
             Random ran = new Random();
             long a = ran.Next(int.MinValue, int.MaxValue);
-            long expected = -a;
+            long expected = -Math.Abs(a);
             long result = BaseCalculator.CalcClass.IABS(a);
             Assert.AreEqual(expected, result);
         }
